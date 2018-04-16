@@ -31,6 +31,11 @@ mkdir('./eye_positions/finding/dynamic');
 mkdir('./eye_positions/pointing/static');
 mkdir('./eye_positions/pointing/dynamic');
 
+mkdir('./scroll/finding/static');
+mkdir('./scroll/finding/dynamic');
+mkdir('./scroll/pointing/static');
+mkdir('./scroll/pointing/dynamic');
+
 for ($i = 1; $i < count($data); $i += 2) {
     $x_num = $data[$i][1] / ICON_SIZE;
     if ($data[$i][0] < $static_thresholds[$x_num]) { // 動かないアイコンの場合
@@ -38,11 +43,21 @@ for ($i = 1; $i < count($data); $i += 2) {
         rename('./eye_positions/pointing/' . ($i - 1) . '.csv', './eye_positions/pointing/static/' . ($i - 1) . '.csv');
         rename('./eye_positions/finding/' . $i . '.csv', './eye_positions/finding/static/' . $i . '.csv');
         rename('./eye_positions/pointing/' . $i . '.csv', './eye_positions/pointing/static/' . $i . '.csv');
+
+        rename('./scroll/finding/' . ($i - 1) . '.csv', './scroll/finding/static/' . ($i - 1) . '.csv');
+        rename('./scroll/pointing/' . ($i - 1) . '.csv', './scroll/pointing/static/' . ($i - 1) . '.csv');
+        rename('./scroll/finding/' . $i . '.csv', './scroll/finding/static/' . $i . '.csv');
+        rename('./scroll/pointing/' . $i . '.csv', './scroll/pointing/static/' . $i . '.csv');
     } else {
         rename('./eye_positions/finding/' . ($i - 1) . '.csv', './eye_positions/finding/dynamic/' . ($i - 1) . '.csv');
         rename('./eye_positions/pointing/' . ($i - 1) . '.csv', './eye_positions/pointing/dynamic/' . ($i - 1) . '.csv');
         rename('./eye_positions/finding/' . $i . '.csv', './eye_positions/finding/dynamic/' . $i . '.csv');
         rename('./eye_positions/pointing/' . $i . '.csv', './eye_positions/pointing/dynamic/' . $i . '.csv');
+
+        rename('./scroll/finding/' . ($i - 1) . '.csv', './scroll/finding/dynamic/' . ($i - 1) . '.csv');
+        rename('./scroll/pointing/' . ($i - 1) . '.csv', './scroll/pointing/dynamic/' . ($i - 1) . '.csv');
+        rename('./scroll/finding/' . $i . '.csv', './scroll/finding/dynamic/' . $i . '.csv');
+        rename('./scroll/pointing/' . $i . '.csv', './scroll/pointing/dynamic/' . $i . '.csv');
     }
 }
 
